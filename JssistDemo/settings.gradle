@@ -1,0 +1,2 @@
+include ':app', ':myPlutin'//, ':buildSrc'
+rootProject.name='JssistDemo'

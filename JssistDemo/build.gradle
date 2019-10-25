@@ -1,0 +1,62 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url MY_MAVEN_URL
+        }
+//        maven {
+//            credentials {
+//                username 'qxqIat'
+//                password 'OSAy17nuyQ'
+//            }
+//            url 'https://repo.rdc.aliyun.com/repository/108121-release-EnVTcI/'
+//        }
+        maven {
+            credentials {
+                username 'qxqIat'
+                password 'OSAy17nuyQ'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/108121-snapshot-SDZwSM/'
+        }
+//        maven { url LOCAL_REPO_URL }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath 'com.skio.myplugin:myPlutin:0.0.1.3'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+//        maven { url LOCAL_REPO_URL }
+
+        maven {
+            url MY_MAVEN_URL
+        }
+
+        maven {
+            credentials {
+                username 'qxqIat'
+                password 'OSAy17nuyQ'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/108121-release-EnVTcI/'
+        }
+        maven {
+            credentials {
+                username 'qxqIat'
+                password 'OSAy17nuyQ'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/108121-snapshot-SDZwSM/'
+        }
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

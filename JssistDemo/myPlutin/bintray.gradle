@@ -1,0 +1,21 @@
+uploadArchives {
+    configuration = configurations.archives
+    repositories {
+        mavenDeployer {
+            //snapshotRepository
+            repository(url: MAVEN_SNAPSHOT_URL) {
+                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            }
+//            repository(url: MAVEN_URL) {
+//                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+//            }
+            pom.project {
+                version '0.0.1.3'
+                artifactId 'myPlutin'
+                groupId 'com.skio.myplugin'
+                packaging 'jar'
+                description "test .."
+            }
+        }
+    }
+}

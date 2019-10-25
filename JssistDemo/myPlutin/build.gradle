@@ -1,0 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+//插件发布到本地
+//apply from: 'localmaven.gradle'
+//插件发布到plugins.gradle.org
+//apply from: 'plugin-publish.gradle'
+//发布到阿里云仓库
+apply from: 'bintray.gradle'
+
+repositories {
+    google()
+    mavenCentral()
+    jcenter()
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+    }
+    dependencies {
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+    }
+}
+
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'org.javassist:javassist:3.18.+'
+    implementation 'com.android.tools.build:gradle:3.4.2'
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+tasks.withType(GroovyCompile) {
+    groovyOptions.encoding = "UTF-8"
+}
+tasks.withType(ScalaCompile) {
+    scalaCompileOptions.encoding = "UTF-8"
+}

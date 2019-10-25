@@ -1,0 +1,20 @@
+apply plugin: "com.gradle.plugin-publish"
+
+
+
+// The configuration example below shows the minimum required properties
+// configured to publish your plugin to the plugin portal
+pluginBundle {
+    website = 'https://github.com/tingshuonitiao/testPlugin'
+    vcsUrl = 'https://github.com/tingshuonitiao/tset.git'
+    description = 'first test plugin!'
+    tags = ['plugin', 'test']
+
+    plugins {
+        firstPlugin {
+            // id is captured from java-gradle-plugin configuration
+            id = 'com.skio.myplugin'
+            displayName = 'FirstPlugin'
+        }
+    }
+}
