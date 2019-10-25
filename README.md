@@ -1,7 +1,9 @@
 自定义gradle插件
 
  一、创建仅在本项目中使用的插件
+
     注:Gradle 插件是使用 Groovy 语言进行开发的，而 Groovy 是可以兼容 Java 的。
+
     1、新建插件module，module名必须是“buildSrc”（任意种类的module，因为后续一定会修改）
     2、建立文件结构：buildSrc/src/main/groovy。 和 buildSrc/src/main/resources/META-INF/gradle-plugins
     3、删除其他文件结构，仅留下必要的文件目录如下：
@@ -45,6 +47,7 @@
     8、执行app编译，观察编译器输出日志："==========>MyPlugin is started"
 
  二、将插件发布到本地仓库
+
     注：插件开发见“一、创建仅在本项目中使用的插件” 。区别是：此时插件module命名没有特殊要求
     1、在插件目录配置仓库本地地址
         //发插件到本地
@@ -77,6 +80,7 @@
     6、编译项目，查看编译输出日志："==========>MyPlugin is started"
 
     二、将插件发布到远程仓库（阿里云）
+
     1、配置上传脚本（仓库地址，用户名，密码，插件版本号等）
         uploadArchives {
             configuration = configurations.archives
